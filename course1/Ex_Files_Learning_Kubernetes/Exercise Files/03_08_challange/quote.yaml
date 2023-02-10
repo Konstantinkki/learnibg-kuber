@@ -1,0 +1,11 @@
+---
+apiVersion: apps/v1
+kind: Namespace
+metadata:
+  name: quote-service 
+  namespace: development
+  labels:
+    app: quote-service
+spec:
+  replicas: 2
+     

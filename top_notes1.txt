@@ -1,0 +1,49 @@
+1) install docker desktop
+2) install minikube
+3) run minikube (create minikube cluster) : minikube start 
+	if error not enough memory of cpu :
+		stop WSL2 : wsl --shutdown
+		update file : ~/.wslconfig
+		restart docker 
+4) get nodes of clusrter : kubectl get nodes
+5) update minikube : minikube update-check
+6) stop minikube : minikube stop
+7) delete minikube : minikube delete
+8) get cluster info : kubectl cluster-info
+9) get namespaces : kubectl get namespaces (kubectl get ns)
+10) get all pods : kubectl get pods -A  (for namespace development : kubectl get pods -n development )
+10.1) get pods with extra info : kubectl get pods -n development -o wide
+11) get all services : kubectl get services -A
+12) run yaml config : kubectl apply -f config.yaml
+13) delete namespaces from config : kubectl delete -f config.yaml
+14) get deployments for namespace development : kubectl get deployments -n development
+15) delete pod by name in namespace : kubectl delete pod pod-info-deployment-757cb75bbb-psxxh -n development
+
+16) get pode health : kubectl describe pod pod-info-deployment-757cb75bbb-5kpsn -n development
+
+17) exec sh in pod : kubectl exec -it busybox-6b95744666-986zv [--] /bin/sh
+
+18) run minikube tunnel from 127.0.0.1 into kuber : minikube tunnel
+  (create Service - that will listen a port)
+19) get services : minikube get services -n development
+
+------------ delete objects and stop cluster ---------
+20)  delete file by file and after that "minikube delete" 
+
+---------------info-----
+21) kubectl api-resources
+22) kubectl get pods -n kube-system
+23) kubectl logs etcd-minikube -n kube-system | jq .   - get logs of ETCD
+
+----------security------------
+6_03 - block SecurityContext
+test security - Snyk CLI
+  24) snyk iac test deployment.yaml
+
+
+
+
+
+
+
+yaml validator - https://yamlchecker.com
