@@ -1,0 +1,4 @@
+MakeFile for runnong with make
+
+make run_website //for run
+make stop_website // for stop
